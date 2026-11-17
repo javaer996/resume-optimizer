@@ -3,6 +3,15 @@
   "version": "1.8.0",
   "private": true,
   "description": "简历优化与批量生成工作台：登录认证、多目标公司批量 AI 优化、敏感信息脱敏、12 套主题 + 一句话生成 CSS、内置 PDF 引擎导出",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javaer996/resume-optimizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/javaer996/resume-optimizer/issues"
+  },
+  "homepage": "https://github.com/javaer996/resume-optimizer#readme",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

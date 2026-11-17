@@ -377,3 +377,7 @@ settings.json  脱敏开关、自定义规则、导出设置
 prompts.json   提示词模板与历史版本
 providers.json 供应商配置（含 API Key，注意保管）
 ```
+
+## 许可
+
+Apache-2.0，见 [LICENSE](LICENSE)。
