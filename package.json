@@ -1,0 +1,23 @@
+{
+  "name": "resume-optimizer",
+  "version": "1.8.0",
+  "private": true,
+  "description": "简历优化与批量生成工作台：登录认证、多目标公司批量 AI 优化、敏感信息脱敏、12 套主题 + 一句话生成 CSS、内置 PDF 引擎导出",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test/e2e.js",
+    "test:pdf": "node test/pdf-engine.js",
+    "test:ui": "node test/ui.js",
+    "stop": "node test/stop.js",
+    "test:style": "node test/style.js",
+    "test:research": "node test/research.js",
+    "test:all": "node test/e2e.js && node test/auth.js && node test/style.js && node test/research.js && node test/cssai.js && node test/pdf-engine.js && node test/ui.js",
+    "test:auth": "node test/auth.js",
+    "test:cssai": "node test/cssai.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

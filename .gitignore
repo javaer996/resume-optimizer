@@ -1,0 +1,12 @@
+# 你的数据（简历、单位、提示词、供应商密钥、账号口令哈希）——不要提交
+data/
+
+# 依赖与临时产物
+node_modules/
+*.log
+*.pdf
+!docs/*.pdf
+
+# 系统杂项
+.DS_Store
+Thumbs.db

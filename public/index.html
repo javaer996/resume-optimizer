@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>简历优化工作台</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#" data-nav="profile">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">简历优化</span>
+    </a>
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-view="profile">我的简历</button>
+      <button class="tab" data-view="companies">目标单位<span class="badge-count" id="tab-company-count" hidden>0</span></button>
+      <button class="tab" data-view="optimize">批量优化</button>
+      <button class="tab" data-view="results">优化结果</button>
+      <button class="tab" data-view="mask">脱敏</button>
+      <button class="tab" data-view="prompts">提示词</button>
+      <button class="tab" data-view="providers">AI 供应商</button>
+      <button class="tab" data-view="settings">样式</button>
+    </nav>
+    <div class="topbar-right">
+      <span class="save-hint" id="save-hint"></span>
+      <button class="btn sm quiet" id="btn-account" title="账户与退出登录">账户</button>
+      <button class="btn sm quiet" id="btn-save-all">保存</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="view active" id="view-profile">
+    <div class="page-head">
+      <h1>我的简历</h1>
+      <p>内容只存在本机 <code>data/</code> 目录。发给 AI 之前会自动脱敏，返回后还原真实信息。</p>
+    </div>
+    <div id="profile-root"></div>
+  </section>
+
+  <section class="view" id="view-companies">
+    <div class="page-head">
+      <h1>目标单位</h1>
+      <p>只填<b>单位名称</b>和<b>招聘要求</b>就够了。单位简介、重点考察范围、注意事项由程序自己搜公开资料补齐，补齐后可以随意改。</p>
+      <div class="page-actions">
+        <button class="btn sm" id="btn-import-company">批量导入</button>
+        <button class="btn sm primary" id="btn-new-company">新建单位</button>
+      </div>
+    </div>
+    <div class="sheet">
+      <div class="sheet-body">
+        <div id="companies-root"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-optimize">
+    <div class="page-head">
+      <h1>批量优化</h1>
+      <p>勾选目标单位，一次为每个单位生成一版定制简历。</p>
+    </div>
+    <div class="sheet">
+      <div class="sheet-body">
+        <div id="optimize-root"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-results">
+    <div id="results-root"></div>
+  </section>
+
+  <section class="view" id="view-mask">
+    <div class="page-head">
+      <h1>脱敏</h1>
+      <p>下列内容在发送给 AI 前会被换成占位符，AI 回复后再自动还原。</p>
+    </div>
+    <div class="sheet">
+      <div class="sheet-body">
+        <div id="mask-root"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-prompts">
+    <div class="page-head">
+      <h1>提示词</h1>
+      <p>可以自由编辑。每次保存都会留档，最多保留 10 条历史版本。</p>
+    </div>
+    <div class="sheet">
+      <div class="sheet-body">
+        <div id="prompts-root"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-providers">
+    <div class="page-head">
+      <h1>AI 供应商</h1>
+      <p>兼容 OpenAI 与 Anthropic 两种协议，可同时保存多个供应商随时切换。</p>
+    </div>
+    <div class="sheet">
+      <div class="sheet-body">
+        <div id="providers-root"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="view-settings">
+    <div class="page-head">
+      <h1>样式</h1>
+      <p>选一套模板作为起点，再逐块调整位置与样式；也可以直接写 CSS。</p>
+    </div>
+    <div id="settings-root"></div>
+  </section>
+</main>
+
+<div class="modal-mask" id="modal-mask">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modal-title">标题</h3>
+      <button class="btn ghost sm" id="modal-close" aria-label="关闭">关闭</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-foot" id="modal-foot"></div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<script type="module" src="/js/app.js"></script>
+</body>
+</html>
